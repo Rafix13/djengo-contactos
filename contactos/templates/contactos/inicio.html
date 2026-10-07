@@ -1,0 +1,124 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mis contactos</title>
+
+    <link rel="stylesheet" href="{% static 'contactos/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- CABECERA -->
+        <div class="header">
+
+            <div>
+                <h1>Mis contactos</h1>
+                <p>Gestiona tus contactos fácilmente</p>
+            </div>
+
+            <div class="contact-actions">
+
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'anadir_contacto' %}" class="btn btn-primary">
+                    + Nuevo contacto
+                </a>
+
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn btn-secondary">
+                        Cerrar sesión
+                    </button>
+                </form>
+
+                {% else %}
+
+                <a href="{% url 'login' %}" class="btn btn-primary">
+                    Iniciar sesión
+                </a>
+
+                <a href="{% url 'registro' %}" class="btn btn-secondary">
+                    Registrarse
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <!-- LISTA DE CONTACTOS -->
+        {% if contactos %}
+
+        <div class="contacts">
+
+            {% for contacto in contactos %}
+
+            <div class="contact-card">
+
+                <h2>{{ contacto.nombre }}</h2>
+
+                <div class="contact-info">
+
+                    <p>📞 {{ contacto.telefono }}</p>
+
+                    <p>✉️ {{ contacto.email }}</p>
+
+                    <p>📍 {{ contacto.provincia }}</p>
+
+                </div>
+
+
+                <div class="contact-actions">
+
+                    <a href="{% url 'detalle_contacto' contacto.id %}" class="btn btn-primary">
+                        Ver
+                    </a>
+
+                    <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-edit">
+                        Editar
+                    </a>
+
+                    <a href="{% url 'eliminar_contacto' contacto.id %}" class="btn btn-danger">
+                        Eliminar
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <!-- SIN CONTACTOS -->
+        <div class="empty">
+
+            <h2>No tienes contactos</h2>
+
+            <p>Añade tu primer contacto para empezar.</p>
+
+            <br>
+
+            <a href="{% url 'anadir_contacto' %}" class="btn btn-primary">
+                + Añadir contacto
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

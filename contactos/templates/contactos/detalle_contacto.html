@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ contacto.nombre }}</title>
+
+    <link rel="stylesheet" href="{% static 'contactos/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="detail-card">
+
+        <h1>{{ contacto.nombre }}</h1>
+
+        <div class="detail-item">
+            <strong>Teléfono:</strong>
+            {{ contacto.telefono }}
+        </div>
+
+        <div class="detail-item">
+            <strong>Email:</strong>
+            {{ contacto.email }}
+        </div>
+
+        <div class="detail-item">
+            <strong>Provincia:</strong>
+            {{ contacto.provincia }}
+        </div>
+
+        <div class="detail-actions">
+
+            <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-edit">
+                Editar
+            </a>
+
+            <a href="{% url 'eliminar_contacto' contacto.id %}" class="btn btn-danger">
+                Eliminar
+            </a>
+
+            <a href="{% url 'inicio' %}" class="btn btn-secondary">
+                Volver
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

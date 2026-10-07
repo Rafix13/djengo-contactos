@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarse</title>
+
+    <link rel="stylesheet" href="{% static 'contactos/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <h1>Crear cuenta</h1>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ formulario.as_p }}
+
+            <div class="form-buttons">
+
+                <button type="submit" class="btn btn-primary">
+                    Registrarse
+                </button>
+
+                <a href="{% url 'login' %}" class="btn btn-secondary">
+                    Ya tengo una cuenta
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

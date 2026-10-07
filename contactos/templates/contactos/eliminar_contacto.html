@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar contacto</title>
+
+    <link rel="stylesheet" href="{% static 'contactos/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="detail-card">
+
+        <h1>Eliminar contacto</h1>
+
+        <p>
+            ¿Estás seguro de que quieres eliminar a
+            <strong>{{ contacto.nombre }}</strong>?
+        </p>
+
+        <div class="detail-actions">
+
+            <form method="post">
+                {% csrf_token %}
+
+                <button type="submit" class="btn btn-danger">
+                    Sí, eliminar
+                </button>
+            </form>
+
+            <a href="{% url 'detalle_contacto' contacto.id %}" class="btn btn-secondary">
+                Cancelar
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

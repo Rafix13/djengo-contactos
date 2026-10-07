@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar contacto</title>
+
+    <link rel="stylesheet" href="{% static 'contactos/estilos.css' %}">
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <h1>Editar contacto</h1>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ formulario.as_p }}
+
+            <div class="form-buttons">
+
+                <button type="submit" class="btn btn-edit">
+                    Guardar cambios
+                </button>
+
+                <a href="{% url 'detalle_contacto' contacto.id %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

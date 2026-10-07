@@ -1,7 +1,21 @@
 /* =========================
-   GENERAL
+   PALETA
 ========================= */
 
+:root {
+    --charcoal: #282823;
+    --ebony: #595C56;
+    --sunray: #E9BE5F;
+    --blond: #F5E8B6;
+
+    --white: #fffdf5;
+    --text: #282823;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
 
 * {
     box-sizing: border-box;
@@ -10,11 +24,12 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #eef2ff, #dbeafe);
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--blond);
+    color: var(--text);
     min-height: 100vh;
-    color: #1e293b;
 }
+
 
 /* =========================
    CONTENEDOR
@@ -22,35 +37,42 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1100px;
-    margin: 50px auto;
+    max-width: 1150px;
+    margin: 45px auto;
 }
+
 
 /* =========================
    CABECERA
 ========================= */
 
 .header {
-    background: white;
-    padding: 25px 30px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: var(--charcoal);
+    color: var(--blond);
+
+    padding: 28px 32px;
+    border-radius: 22px;
+
     margin-bottom: 30px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+
+    box-shadow: 0 12px 30px rgba(40, 40, 35, 0.20);
 }
 
 .header h1 {
-    font-size: 30px;
-    color: #1e3a8a;
+    font-size: 32px;
+    margin-bottom: 6px;
 }
 
 .header p {
-    margin-top: 5px;
-    color: #64748b;
+    color: #d9d4b9;
+    font-size: 15px;
 }
+
 
 /* =========================
    BOTONES
@@ -58,55 +80,77 @@ body {
 
 .btn {
     display: inline-block;
+
     padding: 11px 18px;
+
     border-radius: 10px;
-    text-decoration: none;
     border: none;
-    cursor: pointer;
+
+    text-decoration: none;
+
+    font-family: inherit;
     font-size: 14px;
     font-weight: bold;
-    transition: 0.2s ease;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
     transform: translateY(-2px);
 }
 
+
+/* BOTÓN PRINCIPAL */
+
 .btn-primary {
-    background: #2563eb;
-    color: white;
+    background: var(--sunray);
+    color: var(--charcoal);
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: #dcae4f;
 }
 
+
+/* EDITAR */
+
 .btn-edit {
-    background: #f59e0b;
-    color: white;
+    background: var(--ebony);
+    color: var(--blond);
 }
 
 .btn-edit:hover {
-    background: #d97706;
+    background: #484b46;
 }
 
+
+/* ELIMINAR */
+
 .btn-danger {
-    background: #dc2626;
-    color: white;
+    background: var(--charcoal);
+    color: var(--blond);
+    border: 1px solid var(--ebony);
 }
 
 .btn-danger:hover {
-    background: #b91c1c;
+    background: #151512;
 }
 
+
+/* SECUNDARIO */
+
 .btn-secondary {
-    background: #e2e8f0;
-    color: #334155;
+    background: var(--blond);
+    color: var(--charcoal);
+    border: 1px solid var(--ebony);
 }
 
 .btn-secondary:hover {
-    background: #cbd5e1;
+    background: #eadca9;
 }
+
 
 /* =========================
    CONTACTOS
@@ -114,35 +158,54 @@ body {
 
 .contacts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(280px, 1fr));
+
+    gap: 22px;
 }
 
 .contact-card {
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-    transition: 0.25s ease;
+    background: var(--white);
+
+    padding: 26px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(89, 92, 86, 0.20);
+
+    box-shadow:
+        0 8px 25px rgba(40, 40, 35, 0.10);
+
+    transition: all 0.25s ease;
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 15px 35px rgba(40, 40, 35, 0.18);
 }
 
 .contact-card h2 {
-    margin-bottom: 15px;
-    color: #1e3a8a;
+    color: var(--charcoal);
+
+    font-size: 23px;
+
+    margin-bottom: 17px;
 }
 
 .contact-info {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .contact-info p {
-    margin: 8px 0;
-    color: #475569;
+    margin: 9px 0;
+
+    color: var(--ebony);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 .contact-actions {
@@ -151,124 +214,217 @@ body {
     flex-wrap: wrap;
 }
 
-.contact-actions form {
-    margin: 0;
-}
 
 /* =========================
    FORMULARIOS
 ========================= */
 
 .form-container {
-    background: white;
+    background: var(--white);
+
+    width: 90%;
     max-width: 600px;
-    margin: 50px auto;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(89, 92, 86, 0.20);
+
+    box-shadow:
+        0 15px 40px rgba(40, 40, 35, 0.15);
 }
 
 .form-container h1 {
-    margin-bottom: 25px;
-    color: #1e3a8a;
+    color: var(--charcoal);
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
 }
 
 form p {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 form label {
     display: block;
+
     margin-bottom: 7px;
+
+    color: var(--ebony);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     font-weight: bold;
-    color: #334155;
 }
 
 form input,
 form select {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 9px;
+
+    padding: 13px 14px;
+
+    border: 1px solid #b9b8a9;
+
+    border-radius: 10px;
+
+    background: #fffef9;
+
+    color: var(--charcoal);
+
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
+
     outline: none;
-    transition: 0.2s;
+
+    transition: all 0.2s ease;
 }
 
 form input:focus,
 form select:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--sunray);
+
+    box-shadow:
+        0 0 0 3px rgba(233, 190, 95, 0.25);
 }
 
 .form-buttons {
-    margin-top: 25px;
+    margin-top: 28px;
+
     display: flex;
     gap: 10px;
+
+    flex-wrap: wrap;
 }
+
 
 /* =========================
    DETALLE CONTACTO
 ========================= */
 
 .detail-card {
-    background: white;
+    background: var(--white);
+
+    width: 90%;
     max-width: 700px;
-    margin: 50px auto;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(89, 92, 86, 0.20);
+
+    box-shadow:
+        0 15px 40px rgba(40, 40, 35, 0.15);
 }
 
 .detail-card h1 {
-    color: #1e3a8a;
-    margin-bottom: 25px;
+    color: var(--charcoal);
+
+    font-size: 32px;
+
+    margin-bottom: 28px;
 }
 
 .detail-item {
-    padding: 15px 0;
-    border-bottom: 1px solid #e2e8f0;
+    padding: 17px 0;
+
+    border-bottom: 1px solid #ddd8c2;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--ebony);
 }
 
 .detail-item strong {
     display: inline-block;
+
     width: 120px;
-    color: #334155;
+
+    color: var(--charcoal);
 }
 
 .detail-actions {
-    margin-top: 25px;
+    margin-top: 28px;
+
     display: flex;
+
     gap: 10px;
+
     flex-wrap: wrap;
 }
 
+
 /* =========================
-   MENSAJE SIN CONTACTOS
+   SIN CONTACTOS
 ========================= */
 
 .empty {
-    background: white;
-    padding: 50px;
+    background: var(--white);
+
+    padding: 60px 30px;
+
     text-align: center;
-    border-radius: 16px;
-    color: #64748b;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(89, 92, 86, 0.20);
+
+    box-shadow:
+        0 8px 25px rgba(40, 40, 35, 0.10);
 }
 
+.empty h2 {
+    color: var(--charcoal);
+
+    margin-bottom: 10px;
+}
+
+.empty p {
+    color: var(--ebony);
+
+    margin-bottom: 20px;
+}
+
+
 /* =========================
-   ENLACES DE AUTENTICACIÓN
+   AUTENTICACIÓN
 ========================= */
 
 .form-container p a {
-    color: #2563eb;
-    text-decoration: none;
+    color: var(--ebony);
+
     font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.2s;
 }
 
 .form-container p a:hover {
+    color: var(--charcoal);
+
     text-decoration: underline;
 }
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.contact-actions form {
+    margin: 0;
+}
+
+.contact-actions form button {
+    font-family: inherit;
+}
+
 
 /* =========================
    RESPONSIVE
@@ -283,11 +439,14 @@ form select:focus {
 
     .header {
         flex-direction: column;
+
         align-items: flex-start;
+
+        padding: 25px;
     }
 
     .header h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .contacts {
@@ -296,12 +455,28 @@ form select:focus {
 
     .form-container,
     .detail-card {
-        margin: 25px auto;
-        padding: 25px;
+        width: 94%;
+
+        margin: 30px auto;
+
+        padding: 28px 22px;
     }
 
     .detail-item strong {
         display: block;
+
+        width: auto;
+
         margin-bottom: 5px;
+    }
+
+    .contact-actions {
+        width: 100%;
+    }
+
+    .contact-actions .btn {
+        flex: 1;
+
+        text-align: center;
     }
 }

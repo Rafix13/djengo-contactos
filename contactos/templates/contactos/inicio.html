@@ -73,6 +73,8 @@
 
                     <p>📍 {{ contacto.provincia }}</p>
 
+                    <p>🌎 {{ contacto.pais }}</p>
+
                 </div>
 
 
@@ -80,10 +82,6 @@
 
                     <a href="{% url 'detalle_contacto' contacto.id %}" class="btn btn-primary">
                         Ver
-                    </a>
-
-                    <a href="{% url 'editar_contacto' contacto.id %}" class="btn btn-edit">
-                        Editar
                     </a>
 
                     <a href="{% url 'eliminar_contacto' contacto.id %}" class="btn btn-danger">

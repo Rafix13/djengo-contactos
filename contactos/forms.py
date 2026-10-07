@@ -7,7 +7,7 @@ from .models import Contacto
 class ContactoForm(forms.ModelForm):
     class Meta:
         model = Contacto
-        fields = ['nombre', 'telefono', 'email', 'provincia']
+        fields = ['nombre', 'telefono', 'email', 'provincia', 'pais']
 
 
 class RegistroForm(UserCreationForm):
